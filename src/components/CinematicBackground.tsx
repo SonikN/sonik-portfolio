@@ -26,6 +26,24 @@ function Particles({ count = 1000 }) {
     return [positions, velocities];
   }, [count]);
 
+  // Create a simple circular texture to make particles look like stars rather than squares
+  const starTexture = useMemo(() => {
+    if (typeof document === 'undefined') return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const context = canvas.getContext('2d');
+    if (context) {
+      const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, 32, 32);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
+  }, []);
+
   // Animate particles on every frame
   useFrame((state, delta) => {
     if (pointsRef.current) {
@@ -62,12 +80,14 @@ function Particles({ count = 1000 }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.015}
+        size={0.03}
         color="#ffffff"
         transparent
-        opacity={0.3}
+        opacity={0.6}
         sizeAttenuation={true}
         depthWrite={false}
+        map={starTexture}
+        blending={THREE.AdditiveBlending}
       />
     </points>
   );

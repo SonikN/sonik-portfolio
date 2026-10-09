@@ -7,10 +7,8 @@
   - Local:        http://localhost:3001
 
  ✓ Starting...
- ✓ Ready in 1799ms
+ ✓ Ready in 2.6s
  ○ Compiling / ...
- ✓ Compiled / in 13.3s (1397 modules)
- GET / 200 in 14723ms
- ✓ Compiled in 1527ms (687 modules)
- ✓ Compiled in 7.4s (1388 modules)
- GET / 200 in 271ms
+ ✓ Compiled / in 10.3s (1397 modules)
+ GET / 200 in 11153ms
+ ✓ Compiled in 948ms (687 modules)

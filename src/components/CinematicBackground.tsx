@@ -35,8 +35,8 @@ function Particles({ count = 1000 }) {
     const context = canvas.getContext('2d');
     if (context) {
       const gradient = context.createRadialGradient(32, 32, 0, 32, 32, 32);
-      gradient.addColorStop(0, 'rgba(255,255,255,0.4)');
-      gradient.addColorStop(0.2, 'rgba(255,255,255,0.1)');
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(0.3, 'rgba(255,255,255,0.3)');
       gradient.addColorStop(1, 'rgba(255,255,255,0)');
       context.fillStyle = gradient;
       context.fillRect(0, 0, 64, 64);
@@ -84,7 +84,7 @@ function Particles({ count = 1000 }) {
         size={0.04}
         color="#ffffff"
         transparent
-        opacity={0.4}
+        opacity={0.6}
         sizeAttenuation={true}
         depthWrite={false}
         map={dustTexture}
